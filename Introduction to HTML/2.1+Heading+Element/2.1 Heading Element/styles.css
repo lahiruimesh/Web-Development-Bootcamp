@@ -1,0 +1,31 @@
+
+.row1{
+    display: inline-flex;
+    text-align: center;
+}
+
+.col1{
+    margin:0px 30px 15px 30px;
+    border-width: 1px;
+    border-style: solid;
+    border-color: #c1ba34;
+    border-radius: 8px;
+    padding: 2px;
+}
+
+.row1 img{
+    width: 200px;
+    height: 200px;
+    border-radius: 5px;
+}
+
+.table{
+    text-align: center;
+    margin:0px;
+    padding:0;
+}
+
+.link{
+    text-decoration: none;
+    color: black;
+}
