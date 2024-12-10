@@ -26,3 +26,8 @@ img{
     width: 200px;
     height: 200px;
 }
+
+p[value="4"]{
+    font-size: 20px;
+    color: cadetblue;
+}
