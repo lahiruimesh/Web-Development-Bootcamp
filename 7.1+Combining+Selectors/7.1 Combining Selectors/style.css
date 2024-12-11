@@ -1,1 +1,16 @@
 /* Write your code here: */
+h1, h2{
+    color: blueviolet;
+}
+
+.box > p{
+    color: brown;
+}
+
+.box li{
+    color: red;
+}
+
+.list .done{
+    color: green;
+}
