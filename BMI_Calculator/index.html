@@ -1,11 +1,25 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>BMI Calculator</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Button Sound</title>
 </head>
 <body>
-    
+  <button id="myButton">Play Sound</button>
+
+  <!-- Audio Element -->
+  <audio id="buttonSound" src="../Drum+Kit+Starting+Files/Drum Kit Starting Files/sounds/crash.mp3"></audio>
+
+  <script>
+    // Get the button and audio element
+    const button = document.getElementById("myButton");
+    const sound = document.getElementById("buttonSound");
+
+    // Add click event listener to the button
+    button.addEventListener("click", function() {
+      sound.play(); // Play the sound
+    });
+  </script>
 </body>
 </html>
