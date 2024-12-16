@@ -1,15 +1,4 @@
-import {randomSupervillain} from 'supervillains';
-import {randomSuperhero} from 'superheroes';
+import generateName from 'sillyname';  // Use import to load the module
 
-var generateName = require('sillyname');
-var sillyName = generateName();
-
+const sillyName = generateName();
 console.log(`My name is ${sillyName}.`);
-
-var superheroes = randomSuperhero();
-console.log(`Your superhero name is: ${superheroes}`);
-
-
-var villName = randomSupervillain();
-
-console.log(`Your supervillain name is: ${villName}`);
