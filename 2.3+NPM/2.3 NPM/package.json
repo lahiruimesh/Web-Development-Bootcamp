@@ -2,6 +2,7 @@
   "name": "practice_npm",
   "version": "1.0.0",
   "main": "index.js",
+  "type": "module",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -9,6 +10,8 @@
   "license": "ISC",
   "description": "",
   "dependencies": {
-    "sillyname": "^0.1.0"
+    "sillyname": "^0.1.0",
+    "superheroes": "^4.0.0",
+    "supervillains": "^4.0.0"
   }
 }
