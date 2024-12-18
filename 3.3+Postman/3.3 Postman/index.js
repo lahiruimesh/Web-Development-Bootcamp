@@ -1,6 +1,12 @@
 import express from "express";
+import cowsay from 'cowsay';
+import blessed from 'blessed';
+
+
+
 const app = express();
 const port = 3000;
+
 
 // *********************
 // Let’s practice using Postman. Make sure your server is running with nodemon.
@@ -35,3 +41,8 @@ app.delete("/user/angela", (req, res) => {
 app.listen(port, () => {
   console.log(`Server started on port ${port}`);
 });
+
+console.log(cowsay.say({ text: 'Hello!' }));
+
+const screen = blessed.screen({ smartCSR: true });
+screen.title = 'My Terminal App';
