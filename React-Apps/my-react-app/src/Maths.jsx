@@ -16,7 +16,11 @@ function Mul(x, y){
 };
 
 function Div(x, y){
+   if(y == 0){
+    return "Can't divide by zero";
+   }else{
     return x / y;
+   }
 };
 
 
