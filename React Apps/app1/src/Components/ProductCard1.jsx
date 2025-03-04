@@ -13,6 +13,7 @@ const ProductCard1 = ({ image, title, price }) => {
       </div>
     </div>
   );
+  
 };
 
 export default ProductCard1;

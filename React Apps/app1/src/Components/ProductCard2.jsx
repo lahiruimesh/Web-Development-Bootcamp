@@ -1,4 +1,6 @@
 import react from 'react';
+import ProductList from './Products';
+
 
 function ProductCard2(props){
     return (
@@ -14,5 +16,6 @@ function ProductCard2(props){
         </div>
       );
 };
+
 
 export default ProductCard2;
