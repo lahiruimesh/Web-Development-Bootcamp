@@ -1,20 +1,58 @@
 import React from 'react';
+import axios from 'axios';
+import { useEffect,useState } from 'react'
 import Form from '../Components/form';
 import Table from '../Components/table';
 
-const userDetails = [
-    {id : 1 , name : 'Saman'},
-    {id : 2 , name : 'Kamal'},
-    {id : 3 , name : 'Nimal'},
-    {id : 4 , name : 'Sirimal'},
-];
- 
-
 const User = () => {
+
+    const [users, setUsers] = useState([]);
+    const [submitted, setSubmitted] = useState(false);
+
+    useEffect(() => {
+       getUsers();
+    }, []);
+
+    /*-------------- get users -----------------*/ 
+
+    const getUsers = () => {
+        axios.get('http://localhost:5000/api/users')
+        .then(response => {
+            setUsers(response?.data?.response || []);
+        })
+        .catch(error => {
+            console.error('Error fetching users: ', error);
+        });
+    }
+
+    /*-------------- set user -----------------*/
+
+    const addUsers = (data) => {
+        setSubmitted(true);
+
+        const payload = {
+            id: data.id,
+            name: data.name,
+        }
+        axios.post('http://localhost:5000/api/createuser', payload)
+        .then(response => {
+            getUsers();
+            setSubmitted(false);
+        })
+        .catch(error => {
+            console.error('Error fetching users: ', error);
+        });
+    }
+
+    /*---------------------- update users --------------------------*/
+
     return(
         <div>
-            <Form />
-            <Table users={userDetails} />
+            <Form 
+            addUsers = {addUsers}
+            submitted={submitted}
+            />
+            <Table users={users} />
         </div>
     );
 };

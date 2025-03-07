@@ -6,12 +6,14 @@ const Table = ({ users }) => {
         <div>
             <h3>Details Table ...</h3>
             <table>
-                <tr>
+                <thead>
+                    <tr>
                     <th>ID</th>
                     <th>Name</th>
                     <th>Option</th>
-                </tr>
-                <tr>
+                    </tr>
+                </thead>
+                <tbody>
                     {users.map((users) => (
                         <tr key={users.id}>
                             <td>{users.id}</td>
@@ -22,7 +24,7 @@ const Table = ({ users }) => {
                             </td>
                         </tr>
                     ))}
-                </tr>
+                </tbody>
             </table>
         </div>
     );
