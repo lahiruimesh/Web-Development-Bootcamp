@@ -1,16 +1,50 @@
-const userDetails = [
-    {id : 1 , name : 'Saman'},
-    {id : 2 , name : 'Kamal'},
-    {id : 3 , name : 'Nimal'},
-];
+const { response } = require('express');
+const User = require('./model');
 
-const getUserDetails = (cb) => {
-    cb(userDetails);
+const getUsers = (req, res, next) => {
+    User.find()
+        .then(response => {
+            res.json({response})
+        })
+        .catch(error => {
+            res.json({message: error})
+        });
 };
 
-const getUserById = (id, cb) => {
-    const user = userDetails.find(user => user.id == id);
-    cb(user);
+const addUsers = (req, res, next) => {
+    const user = new User({
+        id: req.body.id,
+        name: req.body.name,
+    });
+    User.save()
+        .then(response => {
+            res.json({response})
+        })
+        .catch(error => {
+            res.json({message: error})
+        });
 };
 
-module.exports = { getUserDetails, getUserById };
+const updateUsers = (req, res, next) => {
+    const { id, name } = req.body;
+    User.updateOne({id: id}, {$set: {name: name} })
+    .then(response => {
+        res.json({response})
+    })
+    .catch(error => {
+        res.json({message: error})
+    });
+};
+
+const deleteUsers = (req, res, next) => {
+    const id = req.body.id;
+    User.deleteOne({id: id})
+    .then(response => {
+        res.json({response})
+    })
+    .catch(error => {
+        res.json({message: error})
+    });
+};
+
+module.exports = { getUsers, addUsers, updateUsers, deleteUsers};

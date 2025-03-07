@@ -15,6 +15,9 @@ app.use(
 app.use(express.json());
 
 
+
+
+
 app.get('/users', (req, res) => {
     controller.getUserDetails(
         userDetails => {
