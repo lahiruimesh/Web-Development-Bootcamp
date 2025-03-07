@@ -1,4 +1,4 @@
-const { response } = require('express');
+//const { response } = require('express');
 const User = require('./model');
 
 const getUsers = (req, res, next) => {
@@ -16,7 +16,7 @@ const addUsers = (req, res, next) => {
         id: req.body.id,
         name: req.body.name,
     });
-    User.save()
+    user.save()
         .then(response => {
             res.json({response})
         })
