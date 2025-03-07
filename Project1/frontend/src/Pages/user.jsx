@@ -6,8 +6,9 @@ const userDetails = [
     {id : 1 , name : 'Saman'},
     {id : 2 , name : 'Kamal'},
     {id : 3 , name : 'Nimal'},
+    {id : 4 , name : 'Sirimal'},
 ];
-
+ 
 
 const User = () => {
     return(
