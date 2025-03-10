@@ -1,20 +1,19 @@
 import React from 'react';
 
-function Card1 (props){
+function Card ({data}){
     return(
-        <div>
-            <h2>{props.title}</h2>
-            <p>{props.content}</p>
+        <div className='cards'>
+            {data.map((item) => (
+                <div key={item.id} className="product-card">
+                <img src={item.image} alt={item.title} className="product-image" />
+                <h3 className="product-title">{item.title}</h3>
+                <p className="product-price">${item.price}</p>
+                <button className="product-button">Add to Cart</button>
+              </div>
+            ))};
+           
         </div>
     );
 };
 
-function Card2 (props){
-    return(
-        <div>
-            <img src={props.image} alt={props.title} />
-        </div>
-    );
-};
-
-export { Card1, Card2 };
+export default Card;
