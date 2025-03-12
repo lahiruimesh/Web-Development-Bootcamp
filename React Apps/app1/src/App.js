@@ -4,6 +4,7 @@ import Card from './Components/Cards';
 import './App.css';
 import Data from './Components/Data';
 import ProductDetails from './Components/ProductDetails';
+import Login from './Components/Login';
 
 function App() {
   return (
@@ -12,6 +13,7 @@ function App() {
       <Routes>
       <Route path="/" element={<Card />} />
       <Route path="/product/:id" element={<ProductDetails />} />
+      <Route path="/login" element={<Login />}/>
       </Routes>
     </Router>
   );
