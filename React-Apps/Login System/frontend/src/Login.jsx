@@ -1,6 +1,29 @@
 import React from "react";
+import { Link } from "react-router-dom";
+import { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import axios from "axios";
 
 const Login = () => {
+
+    const [email, setEmail] = useState();
+    const [password, setPassword] = useState();
+    const navigate = useNavigate();
+
+    const handleSubmit = (e) => {
+            e.preventDefault();
+            axios.post("http://localhost:3001/login", {
+                email,
+                password,
+            })
+            .then(result => {console.log(result)
+                if(result.data === "success"){
+                    navigate('/home')
+             }})
+           
+            .catch(error => console.error(error));
+        };
+
     return(
         <div className="h-screen flex justify-center items-center dark:bg-gray-900">
       <div className="grid gap-8">
@@ -9,7 +32,7 @@ const Login = () => {
             <h1 className="pt-8 pb-6 font-bold dark:text-gray-400 text-5xl text-center">
               Log in
             </h1>
-            <form className="space-y-4">
+            <form onSubmit={handleSubmit} className="space-y-4">
               <div>
                 <label htmlFor="email" className="mb-2 dark:text-gray-400 text-lg">
                   Email
@@ -18,7 +41,7 @@ const Login = () => {
                   id="email"
                   type="email"
                   placeholder="Email"
-                 
+                 onChange={(e) => setEmail(e.target.value)}
                   required
                   className="border p-3 dark:bg-indigo-700 dark:text-gray-300 dark:border-gray-700 shadow-md placeholder:text-base focus:scale-105 ease-in-out duration-300 border-gray-300 rounded-lg w-full"
                 />
@@ -31,7 +54,7 @@ const Login = () => {
                   id="password"
                   type="password"
                   placeholder="Password"
-                 
+                 onChange={(e) => setPassword(e.target.value)}
                   required
                   className="border p-3 shadow-md dark:bg-indigo-700 dark:text-gray-300 dark:border-gray-700 placeholder:text-base focus:scale-105 ease-in-out duration-300 border-gray-300 rounded-lg w-full"
                 />
