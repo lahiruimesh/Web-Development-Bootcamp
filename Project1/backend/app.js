@@ -18,7 +18,7 @@ app.use(express.json());
 
 
 
-app.get('/getusers', (req, res) => {
+app.get('/getuser', (req, res) => {
     controller.getUsers((req, res, next) => {
         res.send();
     });

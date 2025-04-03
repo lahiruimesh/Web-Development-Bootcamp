@@ -3,6 +3,7 @@ import axios from 'axios';
 import { useEffect,useState } from 'react'
 import Form from '../Components/form';
 import Table from '../Components/table';
+import New from '../Components/new';
 
 const User = () => {
 
@@ -16,7 +17,7 @@ const User = () => {
     /*-------------- get users -----------------*/ 
 
     const getUsers = () => {
-        axios.get('http://localhost:5000/api/users')
+        axios.get('http://localhost:5000/api/getuser')
         .then(response => {
             setUsers(response?.data?.response || []);
         })
@@ -53,6 +54,7 @@ const User = () => {
             submitted={submitted}
             />
             <Table users={users} />
+            <a href="/new">New</a>
         </div>
     );
 };
