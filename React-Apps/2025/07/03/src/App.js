@@ -1,24 +1,29 @@
 import React from 'react';
-import logo from './logo.svg';
+//import logo from './logo.svg';
+//import './App.css';
 
 function App() {
 
-  const name = "Lahiru Imesh";
-  const age = 25;
-  const university = "University of Moratuwa";
-  const image = "https://picsum.photos/200/200";
+  const date = new Date();
+  const hours = date.getHours()
+
+  let greeting;
+  let color;
+
+  if (hours < 12){
+    greeting = "Morning";
+    color = "red";
+  } else if (hours < 18){
+    greeting = "Afternoon";
+    color = "green";
+  } else {
+    greeting = "Evening";
+    color = "blue";
+  }
 
   return (
     <div>
-      <h1>Hello Users !</h1>
-      <h3>I am { name }</h3>
-      <h3>I am { age } years old</h3>
-      <h3>I am studying at { university }</h3>
-      <h3>My lucky number is {Math.floor(Math.random() * 10) }</h3>
-      <h3>My lucky number is {age + Math.floor(Math.random() * 10) }</h3>
-      <img src='https://picsum.photos/200/200' />
-      <img src = { image + '?grayscale'} />
-      <img src = { logo } />
+      <h1 style = {{color: color}}>Good {greeting}</h1>
     </div>
   );
 }
