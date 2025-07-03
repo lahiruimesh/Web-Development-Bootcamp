@@ -1,23 +1,24 @@
+import React from 'react';
 import logo from './logo.svg';
-import './App.css';
 
 function App() {
+
+  const name = "Lahiru Imesh";
+  const age = 25;
+  const university = "University of Moratuwa";
+  const image = "https://picsum.photos/200/200";
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <h1>Hello Users !</h1>
+      <h3>I am { name }</h3>
+      <h3>I am { age } years old</h3>
+      <h3>I am studying at { university }</h3>
+      <h3>My lucky number is {Math.floor(Math.random() * 10) }</h3>
+      <h3>My lucky number is {age + Math.floor(Math.random() * 10) }</h3>
+      <img src='https://picsum.photos/200/200' />
+      <img src = { image + '?grayscale'} />
+      <img src = { logo } />
     </div>
   );
 }
